@@ -1,0 +1,352 @@
+# Translation of Plugins - SG Optimizer - Development (trunk) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - SG Optimizer - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-03-09 13:45:53+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - SG Optimizer - Development (trunk)\n"
+
+#: views/php-check.php:88
+msgid "which is below the recommended <strong>PHP "
+msgstr "que es inferior al <strong>PHP recomendado"
+
+#: views/php-check.php:86
+msgid "Your site is using "
+msgstr "Tu sitio está usando"
+
+#: views/php-check.php:29
+msgid "</strong> which is our recommended PHP version or higher."
+msgstr "</strong> que es nuestra versión de PHP recomendada o superior.."
+
+#: views/php-check.php:27
+msgid "Site is running on"
+msgstr "El sitio está funcionando en"
+
+#: views/php-check.php:21
+msgid "<strong>Notice:</strong> checking your site for PHP 7.0 compatibility is a time consuming process that depends on the number of active plugins you have on your site. Please, don’t close your browser until the check is completed."
+msgstr "<strong>Advertencia:</strong> comprobar la compatibilidad de tu sitio con PHP 7.0 es un proceso que lleva tiempo dependiendo del número de plugins activos que tengas en tu sitio. Por favor, no cierres tu navegador hasta que se complete la comprobación."
+
+#: views/php-check.php:19
+msgid "This tool will allow you to check if your website is compatible with the recommended by SiteGround PHP version and switch to it with a click. It is highly advisable to keep your WordPress running on the recommended PHP for best security and performance."
+msgstr "Esta herramienta te permitirá comprobar si tu web es compatible con la versión PHP recomendada por SiteGround, y cambiar a ella en un clic. Es altamente recomendable hacer que tu WordPress funcione con el PHP recomendado para un mejor rendimiento y seguridad."
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:221
+msgid "If you can't update to PHP 7.0 right away, we recommend that you <a style=\"cursor: pointer;\" onclick=\"upgradeTo('5.6');\">switch to PHP 5.6</a> which is the safest and fastest version of the 5 branch."
+msgstr "Si no puedes actualizar a PHP 7.0 ahora mismo te recomendamos <a style=\"cursor: pointer;\" onclick=\"upgradeTo('5.6');\">cambiar a PHP 5.6</a>, que es la versión más segura y rápida de la rama 5."
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:220
+msgid "If you have fixed the reported errors, you may <a style=\"cursor: pointer;\"  onclick=\"runAction();\">try to check the PHP 7.0 compatibility</a> of your Wordpress site again. "
+msgstr "Si has solucionado los errores de los que has informado puedes <a style=\"cursor: pointer;\"  onclick=\"runAction();\">comprobar la compatibilidad con PHP 7.0</a> de tu sitio Wordpress de nuevo. "
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:213
+msgid "Updating PHP Version"
+msgstr "Actualizar versión de PHP"
+
+#: views/ssl.php:41
+msgid "<strong>Warning:</strong> your .htaccess is not writable! Make sure it has its permissions set to 644!"
+msgstr "<strong>Advertencia:</strong> ¡tu archivo .htaccess no tiene permisos de escritura! ¡Asegúrate de que tenga los permisos en 644!"
+
+#: views/ssl.php:53
+msgid "Once you switch your site to go through HTTPS, please check all third-party services that you're using on your site like Gogle Analytics, social networks sharing icons, etc."
+msgstr "Una vez cambies tu sitio para que funcione mediante HTTPS, por favor, revisa todos los servicios de terceros que estés usando en tu sitio, como Google Analytics, iconos de compartir en redes sociales, etc."
+
+#. Description of the plugin/theme
+msgid "This plugin will link your WordPress application with all the performance optimizations provided by SiteGround"
+msgstr "Este plugin vinculará tu aplicación WordPress con todas las optimizaciones de rendimiento ofrecidas por SiteGround"
+
+#: views/ssl.php:51
+msgid "You may have to login again if you decide to disable the force HTTPS functionality!"
+msgstr "¡Puede que tengas que acceder de nuevo si decides desactivar la funcionalidad de forzar HTTPS!"
+
+#: views/ssl.php:51 views/ssl.php:53
+msgid "Important:"
+msgstr "Importante:"
+
+#: views/ssl.php:47
+msgid "<strong>Warning:</strong> It seems you’ve been using another plugin or manually configured your WordPress application to work over HTTPS. Please, disable all SSL forcing plugins and remove all .htaccess rules regarding SSL before you enable the option in order to avoid potential issues."
+msgstr "<strong>Advertencia:</strong> Parece que has estado utilizando otro plugin o has configurado manualmente tu aplicación WordPress para que funcione en HTTPS. Para evitar problemas potenciales, por favor, desactiva todos los plugins que fuercen SSL y borra todas las reglas de .htaccess relacionadas con SSL antes de activar la opción."
+
+#: views/ssl.php:10
+msgid ""
+"<p>Clicking on the <strong>Force HTTPS</strong> toggle will do the following:</p>\n"
+"            <ul class=\"ssl-ul\">\n"
+"            \t<li>It will redirect all your traffic through HTTPS. Thus, your site will always load through a secure connection and you will avoid duplicate content.</li>\n"
+"            \t<li>It will also make the connection to any resource your site includes secure. This way the visitors will not see mixed content warning in the browser. <strong>Note:</strong> If your site includes a resource from an external location that cannot be reached via HTTPS this resource will no longer be loaded on your site.</li>\n"
+"            \t<li>Once your site is loaded through HTTPS it will also automatically take advantage of the HTTP/2 protocol too.</li>\n"
+"            </ul>"
+msgstr ""
+"<p>Haciendo clic en <strong>Forzar HTTPS</strong> hará lo siguiente:</p>\n"
+"            <ul class=\"ssl-ul\">\n"
+"            \t<li>Redirigirá todo tu tráfico a través de HTTPS. Portanto, tu sitio siempre cargará mediante una conexión segura, y evitarás el contenido duplicado.</li>\n"
+"            \t<li>También hará que la conexión a cualquier recurso de tu sitio sea segura. De este modo los visitantes no verán avisos de contenido mixto en el navegador. <strong>Nota:</strong> Si tu sitio incluye algún recurso de una ubicación externa al que no se pueda acceder por HTTPS no se volverá a cargar este recurso en tu sitio.</li>\n"
+"            \t<li>Una vez que tu sitio cargue en HTTPS también aprovechará automáticamente las ventajas del protocolo HTTP/2.</li>\n"
+"            </ul>"
+
+#: views/ssl.php:9 views/ssl.php:24
+msgid "Force HTTPS"
+msgstr "Forzar HTTPS"
+
+#: views/sg-cache.php:5
+msgid "SG Optimizer is a plugin that allows you to use the major performance optimisations for WordPress, which <a href=\"https://www.siteground.com/wordpress-hosting.htm\" target=\"_blank\">SiteGround hosting</a> is providing on its servers. The <strong>SuperCacher Config</strong> allows you to setup three layers of caching for your site. The <strong>HTTPS Config</strong> allows you to force an SSL certificate on your site with a single click. The <strong>PHP Config</strong> allows you to switch to the most optimal PHP version for your site."
+msgstr "SG Optimizer es un plugin que te permite utilizar las optimizaciones de rendimiento para WordPress que ofrece el <a href=\"https://www.siteground.com/wordpress-hosting.htm\" target=\"_blank\">hosting SiteGround</a> en su servidores. La <strong>configuración de SuperCacher</strong> te permite configurar tres capas de caché para tu sitio. La <strong>configuración HTTPS</strong> te permite forzar un certificado SSL en tu sitio en un solo clic. La <strong>configuración PHP</strong> te permite cambiar a la versión de PHP más óptima para tu sitio."
+
+#: views/sg-cache.php:4
+msgid "SiteGround Optimizer by SiteGround"
+msgstr "SiteGround Optimizer by SiteGround"
+
+#: views/php-check.php:155
+msgid " - recommended"
+msgstr "- recomendado"
+
+#: views/php-check.php:153
+msgid " - previous version"
+msgstr "- versión anterior"
+
+#: views/php-check.php:145
+msgid "Switch to"
+msgstr "Cambiar a"
+
+#: views/php-check.php:137
+msgid "Manual PHP Version Change"
+msgstr "Cambio manual de versión PHP"
+
+#: views/php-check.php:122
+msgid "See Errors"
+msgstr "Ver errores"
+
+#: views/php-check.php:118
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: views/php-check.php:105
+msgid "Clean up"
+msgstr "Limpiar"
+
+#: views/php-check.php:64
+msgid "Scan all plugins and themes"
+msgstr "Buscar todos los plugins y temas"
+
+#: views/php-check.php:60
+msgid "Only scan active plugins and themes"
+msgstr "Solo buscar plugins y temas activos"
+
+#: views/php-check.php:54
+msgid "Only Active"
+msgstr "Solo activos"
+
+#: views/caching.php:59
+msgid "Dynamic Cache Status Checker"
+msgstr "Comprobador de estado de caché dinámica"
+
+#: views/caching.php:35
+msgid "Provide a list of your website URLs you would like to exclude from the cache. You can add part of the URLs that you want to exclude."
+msgstr "Ofrece una lista de las URLs de tu web que podrían excluirse de la caché. Puedes añadir parte de las URLs que quieras excluir."
+
+#: views/caching.php:20
+msgid "Automatically flush the Dynamic cache"
+msgstr "Vaciar automáticamente la caché dinámica"
+
+#: php-compatibility-checker/src/sg-wpephpcompat.php:291
+msgid " compatible."
+msgstr "compatible."
+
+#: php-compatibility-checker/src/sg-wpephpcompat.php:275
+msgid "The plugin/theme was skipped as it was too large to scan before the server killed the process."
+msgstr "No se comprobó el plugin/tema debido a que su revisión llevaría demasiado tiempo y el servidor mataría el proceso."
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:219
+msgid "which is our recommended PHP version or higher."
+msgstr "que es la versión, o superior, de PHP que recomendamos."
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:218
+msgid "Site is compatible and running on"
+msgstr "El sitio es compatible y funciona"
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:217
+msgid "Upgrade to"
+msgstr "Actualizar a"
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:216
+msgid "Checks the PHP version your WordPress site is running and whether you're on the fastest possible PHP version."
+msgstr "Comprueba la versión de PHP que tu sitio WordPress está ejecutando y si tienes la versión de PHP más rápida posible."
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:215
+msgid "Your WordPress site is"
+msgstr "Tu sitio WordPress está"
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:208
+msgid "Click upgrade button to ugprade your PHP version."
+msgstr "Haz clic en el botón actualizar para actualizar tu versión de PHP."
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:206
+msgid "The following plugins/themes are not compatible with PHP "
+msgstr "Los siguientes plugins/temas no son compatibles con PHP"
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:205
+#: views/php-check.php:118
+msgid "compatible"
+msgstr "compatible"
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:204
+#: php-compatibility-checker/src/sg-wpephpcompat.php:268
+msgid "Name"
+msgstr "Nombre"
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:164
+msgid "Job"
+msgstr "Tarea"
+
+#: php-compatibility-checker/sg-wpengine-phpcompat.php:163
+msgid "Jobs"
+msgstr "Tareas"
+
+#: class-sg-cachepress-phpversion-checker.php:100
+msgid " You website doesn't run on the recommended by SiteGround PHP version. "
+msgstr "Tu web no está ejecutando la versión de PHP recomendada por SiteGround."
+
+#: class-sg-cachepress-admin.php:368 class-sg-cachepress-admin.php:369
+#: views/php-check.php:18 views/php-check.php:41 views/sg-cache.php:21
+msgid "PHP Config"
+msgstr "Configuración PHP"
+
+#: class-sg-cachepress-admin.php:356 class-sg-cachepress-admin.php:357
+#: views/sg-cache.php:9
+msgid "SuperCacher Config"
+msgstr "Configuración de SuperCacher"
+
+#: class-sg-cachepress-admin.php:344 class-sg-cachepress-admin.php:345
+#: views/sg-cache.php:15
+msgid "HTTPS Config"
+msgstr "Configuración HTTPS"
+
+#. #-#-#-#-#  tmp-sg-cachepress.pot (SG Optimizer 3.3.1)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: class-sg-cachepress-admin.php:326 class-sg-cachepress-admin.php:327
+msgid "SG Optimizer"
+msgstr "SG Optimizer"
+
+#: class-sg-cachepress-admin.php:313
+msgid "SSL toggle failed"
+msgstr "El cambio a SSL falló"
+
+#: class-sg-cachepress-admin.php:312
+msgid "Change PHP Version"
+msgstr "Cambiar versión de PHP"
+
+#: class-sg-cachepress-admin.php:311
+msgid "Checking, please wait..."
+msgstr "Comprobando, por favor espera…"
+
+#: class-sg-cachepress-admin.php:310
+msgid "Check PHP Version"
+msgstr "Comprobar versión de PHP"
+
+#: views/caching.php:70
+msgid "Check if this URL is dynamic or cached. Leave empty for your index or <strong>/example/</strong> for another page."
+msgstr "Revisa si esta URL es dinámica o está cacheada. Déjalo en blanco para tu portada o <strong>/ejemplo/</strong> para otra página."
+
+#: views/caching.php:67
+msgid "Status:"
+msgstr "Estatus:"
+
+#: views/caching.php:53
+msgid "Store in the server's memory frequently executed queries to the database for a faster access on a later use."
+msgstr "Almacena en la memoria del servidor las peticiones lanzadas con frecuencia a la base de datos para un acceso más rápido en usos posteriores."
+
+#: views/caching.php:49
+msgid "Enable Memcached"
+msgstr "Activar Memcached"
+
+#: views/caching.php:44
+msgid "Memcached Settings"
+msgstr "Ajustes de Memcached"
+
+#: views/caching.php:34
+msgid "Exclude URLs From Dynamic Caching"
+msgstr "Excluir URLs de la caché dinámica"
+
+#: views/caching.php:29
+msgid "Purge all the data cached by the Dynamic cache."
+msgstr "Purgar todos los datos en caché con la caché dinámica."
+
+#: views/caching.php:25
+msgid "Purge Cache"
+msgstr "Purgar caché"
+
+#: views/caching.php:18
+msgid "AutoFlush Cache"
+msgstr "Auto limpiar caché"
+
+#: views/caching.php:13
+msgid "Enable the Dynamic caching system"
+msgstr "Activar el sistema de caché dinámica"
+
+#: views/caching.php:11
+msgid "Dynamic Cache"
+msgstr "Caché dinámica"
+
+#: views/caching.php:7
+msgid "Dynamic Cache Settings"
+msgstr "Ajustes de caché dinámica"
+
+#: views/caching.php:5
+msgid "The SuperCacher is a system that allows you to use the SiteGround dynamic cache and Memcached to optimize the performance of your WordPress. In order to take advantage of the system you should have the SuperCacher enabled at your web host plus the required cache options turned on below. For more information on the different caching options refer to the <a href=\"http://www.siteground.com/tutorials/supercacher/\" target=\"_blank\">SuperCacher Tutorial</a>!"
+msgstr "SuperCacher es un sistema que te permite usar la caché dinámica y Memcached de SiteGround para optimizar el rendimiento de tu WordPress. Para obtener las ventajas del sistema deberías tener activo SuperCacher en tu alojamiento web, además de tener activas las opciones obligatorias. Para más información sobre las distintas opciones de caché ¡revisa el <a href=\"http://www.siteground.com/tutorials/supercacher/\" target=\"_blank\">tutorial de SuperCacher</a>!"
+
+#: views/caching.php:4
+msgid "SuperCacher for WordPress by SiteGround"
+msgstr "SuperCacher para WordPress de SiteGround"
+
+#: class-sg-cachepress-admin.php:307
+msgid "CAN'T GET HEADERS"
+msgstr "NO SE PUDIERON OBTENER LAS CABECERAS"
+
+#: class-sg-cachepress-admin.php:306
+msgid "DYNAMIC"
+msgstr "DINÁMICO"
+
+#: class-sg-cachepress-admin.php:305
+msgid "CACHED"
+msgstr "CACHEADO"
+
+#: class-sg-cachepress-admin.php:304
+msgid "Testing..."
+msgstr "Probando…"
+
+#: class-sg-cachepress-admin.php:196
+msgid "Purge SG Cache"
+msgstr "Purgar caché SG"
+
+#. Author of the plugin/theme
+msgid "SiteGround"
+msgstr "SiteGround"
+
+#: class-sg-cachepress-admin.php:308 class-sg-cachepress-admin.php:309
+#: views/caching.php:64
+msgid "Test URL"
+msgstr "URL de prueba"
+
+#: class-sg-cachepress-admin.php:302
+msgid "Successfully Purged"
+msgstr "Purgado con éxito"
+
+#: class-sg-cachepress-admin.php:301 views/caching.php:39
+msgid "Update the Exclude List"
+msgstr "Actualizar la lista de exclusión"
+
+#: class-sg-cachepress-admin.php:300
+msgid "Updating, please wait..."
+msgstr "Actualizando, espera por favor…"
+
+#: class-sg-cachepress-admin.php:299
+msgid "Purging, please wait..."
+msgstr "Purgando, espera por favor…"
+
+#: class-sg-cachepress-admin.php:298 views/caching.php:27
+msgid "Purge the Cache"
+msgstr "Purga la caché"

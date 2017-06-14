@@ -1,0 +1,8 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^ruymanborges\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.ruymanborges\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "https\:\/\/www\.linkedin\.com\/in\/ruym\%C3\%A1n\-borges\-rodr\%C3\%ADguez\-0049a76\/" [R=301,L]
+

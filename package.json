@@ -1,0 +1,32 @@
+{
+  "name": "eliteempresarialapp",
+  "version": "1.0.0",
+  "description": "entrepreneur hub of resources and apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruymanbr/eliteempresarialapp.git"
+  },
+  "keywords": [
+    "webapps",
+    "pwamp",
+    "entrepreneurship",
+    "apphub",
+    "hubapp"
+  ],
+  "author": "Ruyman Borges Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruymanbr/eliteempresarialapp/issues"
+  },
+  "homepage": "https://github.com/ruymanbr/eliteempresarialapp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^1.5.0"
+  }
+}
