@@ -31,7 +31,7 @@ gulp.task( 'styles-critical', function() {
         dest: 'dist/wp-content/themes/eliteempresarial-child/critical-min.css',
 
         // page to use for picking critical
-        src: 'https://www.ruymanborges.com/',
+        src: 'https://localhost',
 
         // make sure the output is minified
         minify: true,
@@ -61,7 +61,7 @@ gulp.task( 'styles-critical', function() {
         }]
     });
 });
-
+/*
 var plugins = require('gulp-load-plugins')();
 
 const gulp = require('gulp');
@@ -79,3 +79,116 @@ gulp.task('default', () =>
         .pipe(ngAnnotate())
         .pipe(gulp.dest(DEST))
 );
+
+
+//var gulp = require('gulp');
+var svgmin = require('gulp-svgmin');
+
+gulp.task('default', function () {
+    return gulp.src('logo.svg')
+        .pipe(svgmin())
+        .pipe(gulp.dest('./out'));
+});
+
+
+//var gulp = require('gulp');
+var postcss = require('gulp-postcss');
+
+gulp.task('css', function () {
+    var processors = [
+        //Aqui irán los plugins que vayamos instalando
+    ];
+    //Aquí la ruta de donde coge nuestros css
+    return gulp.src('./src/css/styles.css')
+        .pipe(postcss(processors))
+        //Aqui la ruta de destino
+        .pipe(gulp.dest('./dist/css'));
+});
+
+//var gulp = require('gulp');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('gulp-autoprefixer');
+var vars = require('postcss-simple-vars');
+var nested = require('postcss-nested');
+var rucksack = require('gulp-rucksack');
+var pxtorem = require('postcss-pxtorem');
+
+gulp.task('css', function() {
+    var processors = [
+        vars,
+        nested,
+        rucksack,
+        pxtorem({
+            root_value: 16,
+            unit_precision: 2,
+            prop_white_list: ['font-size', 'line-height', 'padding'],
+            replace: true,
+            media_query: false
+        }),
+        autoprefixer({
+            browsers: ['last 2 version']
+        })
+    ];
+    //Aquí la ruta de donde coge nuestros css
+    return gulp.src('./src/css/styles.css')
+        .pipe(rucksack())
+        .pipe(postcss(processors))
+        //Aqui la ruta de destino
+        .pipe(gulp.dest('./dist/css'));
+});
+
+
+return gulp.src('./src/css/styles.css')
+    .pipe(rucksack())
+    .pipe(sourcemaps.init())
+    .pipe(postcss(processors))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./dist/css'));
+
+
+
+var cleanCSS = require('gulp-clean-css');
+
+gulp.task('minify-css', function() {
+    return gulp.src('styles/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('dist'));
+});
+
+var uglify = require('gulp-uglify');
+var pump = require('pump');
+
+gulp.task('compress', function (cb) {
+  pump([
+        gulp.src('lib/*.js'),
+        uglify(),
+        gulp.dest('dist')
+    ],
+    cb
+  );
+});
+
+
+var request = require('request');
+var path = require( 'path' );
+var criticalcss = require("criticalcss");
+var fs = require('fs');
+var tmpDir = require('os').tmpdir();
+
+var cssUrl = 'http://site.com/style.css';
+var cssPath = path.join( tmpDir, 'style.css' );
+request(cssUrl).pipe(fs.createWriteStream(cssPath)).on('close', function() {
+  criticalcss.getRules(cssPath, function(err, output) {
+    if (err) {
+      throw new Error(err);
+    } else {
+      criticalcss.findCritical("https://site.com/", { rules: JSON.parse(output) }, function(err, output) {
+        if (err) {
+          throw new Error(err);
+        } else {
+          console.log(output);
+        }
+      });
+    }
+  });
+});*/
