@@ -1,194 +1,114 @@
-// Include gulp
-var gulp = require('gulp');
- // Include plugins
-var concat = require('gulp-concat');
- // Concatenate JS Files
-gulp.task('scripts', function() {
-    return gulp.src('src/scripts/*.js')
-      .pipe(concat('main.js'))
-      .pipe(gulp.dest('dist/wp-content/themes/eliteempresarial-child/js'));
+// define requirements & local variables
+var gulp = require('gulp'),
+    path = require('path'),
+    critical = require('critical'),
+    minifyCss = require('gulp-minify-css'),
+    plugins = require('gulp-load-plugins')(),
+    AUTOPREFIXER_MATRIX = 'last 2 version',
+    THEME_DIST_DIR = 'dist/wp-content/themes/eliteempresarial-child',
+    PLUGIN_DIST_DIR = 'dist/wp-content/plugins/';
+
+// run SVG-related tasks
+
+gulp.task( 'icons', function() {
+    return gulp.src( 'src/icons/*.svg' )                    // grab all src svg files
+        .pipe( plugins.svgmin( function ( file ) {          // minify all svg files
+            var prefix = path.basename( file.relative, path.extname( file.relative ) ); // create unique prefix for each symbol's ID
+            return {
+                plugins: [{
+                    cleanupIDs: {
+                        minify: true
+                    }
+                }]
+            }
+        }))
+        .pipe(plugins.svgstore({                            // concatenate all icon svgs into a single file
+            inlineSvg: true                                 // exclude 
+        }))
+        .pipe(gulp.dest( THEME_DIST_DIR + '/icons'))        // save files into dist directory
 });
- // Default Task
-gulp.task('default', ['scripts']);
+
+// run theme CSS-related tasks
+gulp.task( 'styles-theme', function() {
+
+    return gulp.src( 'src/styles/*.css' )                   // grab all src css files
+        .pipe( plugins.changed( THEME_DIST_DIR ) )          // check if source has changed since last build
+        .pipe( plugins.autoprefixer( AUTOPREFIXER_MATRIX ) ) // remove unneeded and add needed prefixes
+        .pipe( plugins.concat( 'styles-min.css' ) )          // concatenate all css files into a single files
+        .pipe( plugins.minifyCss() )                        // minify concatenated css files
+        .pipe( gulp.dest( THEME_DIST_DIR ) );               // save files into dist directory
+});
+
+// run theme JS-related tasks
+gulp.task( 'scripts-theme', function() {
+    return gulp.src( [ 'src/scripts/admin_post_settings.js', 'src/scripts/custom.js', 'src/scripts/html5.js', 'src/scripts/menu_fix.js', 'src/scripts/smoothscroll.js','src/scripts/theme-customizer-controls.js', 'src/scripts/theme-customizer.js' ] ) // grab theme's js file
+        //.pipe( plugins.changed( THEME_DIST_DIR ) )          // check if source has changed since last build
+        .pipe( plugins.concat( 'scripts-min.js' ) )         // concatenate all js files into a single files
+        .pipe( plugins.uglify() )                           // minify concatenated js files
+        .pipe( gulp.dest( THEME_DIST_DIR ) );               // save files into dist directory
+});
+
+// run serviceworker JS-related tasks
+gulp.task( 'scripts-serviceworker', function() {
+    return gulp.src( 'src/scripts/serviceworker.js' )      // grab all serviceworker js files
+        .pipe( plugins.changed( THEME_DIST_DIR ) )          // check if source has changed since last build
+        .pipe( plugins.concat( 'serviceworker-min.js' ) )   // concatenate files into a single files
+        .pipe( plugins.uglify() )                           // minify concatenated file
+        .pipe( gulp.dest( 'dist/' ) );                      // save files into root /dist directory for proper scope
+});
+
+// run plugins CSS-related tasks
+gulp.task( 'styles-plugins', function() {
+    return gulp.src( PLUGIN_DIST_DIR + '**/*.css' )         // grab all dist css files
+        .pipe( plugins.changedInPlace() )                   // check if source has changed since last build
+        .pipe( plugins.autoprefixer( AUTOPREFIXER_MATRIX ) ) // remove unneeded and add needed prefixes
+        .pipe( gulp.dest( PLUGIN_DIST_DIR) )                // save files into dist directory
+        .pipe( plugins.minifyCss() )                        // minify concatenated css files
+        .pipe( gulp.dest( PLUGIN_DIST_DIR) );               // save files into dist directory
+});
+
+// run plugins JS-related tasks
+gulp.task( 'scripts-plugins', function() {
+    return gulp.src( PLUGIN_DIST_DIR + '**/*.js' )          // grab all src js files
+        .pipe( plugins.changedInPlace() )                   // check if source has changed since last build
+        .pipe( plugins.uglify() )                           // minify concatenated js files
+        .pipe( gulp.dest( PLUGIN_DIST_DIR ) );              // save files into dist directory
+});
 
 // generate critical CSS
 gulp.task( 'styles-critical', function() {
-
-    // prevent Node from balking at self-signed ssl cert
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
-
-    // run critical css
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;           // prevent Node from balking at self-signed ssl cert
     critical.generate({
         /* note: cannot use 'base:' or will break remote 'src:' */
-
-        // we want css, not html
-        inline: false,
-
-        // css source file
-        css: 'src/styles/style.css',
-
-        // css destination file
-        dest: 'dist/wp-content/themes/eliteempresarial-child/critical-min.css',
-
-        // page to use for picking critical
-        src: 'https://localhost',
-
-        // make sure the output is minified
-        minify: true,
-
-        // pick multiple dimensions for top nav
-        dimensions: [{
+        inline: false,                                      // we want css, not html
+        css: 'src/styles/styles.css',                       // css source file
+        dest: THEME_DIST_DIR + '/critical-min.css',         // css destination file
+        src: 'https://localhost',                           // page to use for picking critical
+        minify: true,                                       // make sure the output is minified
+        dimensions: [{                                      // pick multiple dimensions for top nav
             height: 500,
             width: 300
-        }, {
+        },{
             height: 600,
             width: 480
-        }, {
+        },{
             height: 800,
             width: 600
-        }, {
+        },{
             height: 940,
             width: 1280
-        }, {
+        },{
             height: 1000,
             width: 1300
-        }, {
+        },{
             height: 1200,
             width: 1800
-        }, {
+        },{
             height: 1200,
             width: 2300
         }]
     });
 });
-/*
-var plugins = require('gulp-load-plugins')();
 
-const gulp = require('gulp');
-const changed = require('gulp-changed');
-const ngAnnotate = require('gulp-ng-annotate'); // Just as an example 
- 
-const SRC = 'src/*.js';
-const DEST = 'dist';
- 
-gulp.task('default', () =>
-    gulp.src(SRC)
-        .pipe(changed(DEST))
-        // `ngAnnotate` will only get the files that 
-        // changed since the last time it was run 
-        .pipe(ngAnnotate())
-        .pipe(gulp.dest(DEST))
-);
-
-
-//var gulp = require('gulp');
-var svgmin = require('gulp-svgmin');
-
-gulp.task('default', function () {
-    return gulp.src('logo.svg')
-        .pipe(svgmin())
-        .pipe(gulp.dest('./out'));
-});
-
-
-//var gulp = require('gulp');
-var postcss = require('gulp-postcss');
-
-gulp.task('css', function () {
-    var processors = [
-        //Aqui irán los plugins que vayamos instalando
-    ];
-    //Aquí la ruta de donde coge nuestros css
-    return gulp.src('./src/css/styles.css')
-        .pipe(postcss(processors))
-        //Aqui la ruta de destino
-        .pipe(gulp.dest('./dist/css'));
-});
-
-//var gulp = require('gulp');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('gulp-autoprefixer');
-var vars = require('postcss-simple-vars');
-var nested = require('postcss-nested');
-var rucksack = require('gulp-rucksack');
-var pxtorem = require('postcss-pxtorem');
-
-gulp.task('css', function() {
-    var processors = [
-        vars,
-        nested,
-        rucksack,
-        pxtorem({
-            root_value: 16,
-            unit_precision: 2,
-            prop_white_list: ['font-size', 'line-height', 'padding'],
-            replace: true,
-            media_query: false
-        }),
-        autoprefixer({
-            browsers: ['last 2 version']
-        })
-    ];
-    //Aquí la ruta de donde coge nuestros css
-    return gulp.src('./src/css/styles.css')
-        .pipe(rucksack())
-        .pipe(postcss(processors))
-        //Aqui la ruta de destino
-        .pipe(gulp.dest('./dist/css'));
-});
-
-
-return gulp.src('./src/css/styles.css')
-    .pipe(rucksack())
-    .pipe(sourcemaps.init())
-    .pipe(postcss(processors))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/css'));
-
-
-
-var cleanCSS = require('gulp-clean-css');
-
-gulp.task('minify-css', function() {
-    return gulp.src('styles/*.css')
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist'));
-});
-
-var uglify = require('gulp-uglify');
-var pump = require('pump');
-
-gulp.task('compress', function (cb) {
-  pump([
-        gulp.src('lib/*.js'),
-        uglify(),
-        gulp.dest('dist')
-    ],
-    cb
-  );
-});
-
-
-var request = require('request');
-var path = require( 'path' );
-var criticalcss = require("criticalcss");
-var fs = require('fs');
-var tmpDir = require('os').tmpdir();
-
-var cssUrl = 'http://site.com/style.css';
-var cssPath = path.join( tmpDir, 'style.css' );
-request(cssUrl).pipe(fs.createWriteStream(cssPath)).on('close', function() {
-  criticalcss.getRules(cssPath, function(err, output) {
-    if (err) {
-      throw new Error(err);
-    } else {
-      criticalcss.findCritical("https://site.com/", { rules: JSON.parse(output) }, function(err, output) {
-        if (err) {
-          throw new Error(err);
-        } else {
-          console.log(output);
-        }
-      });
-    }
-  });
-});*/
+// let's get this party started!
+gulp.task('default', [ 'icons', 'styles-theme', 'scripts-theme', 'scripts-serviceworker', 'styles-plugins', 'scripts-plugins', 'styles-critical' ]);
